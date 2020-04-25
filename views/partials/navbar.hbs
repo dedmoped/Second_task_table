@@ -1,0 +1,28 @@
+ <nav class="blue darken 4">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Table</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+          {{#if user}}
+              <li><form action="/logout" method="POST" id="my_form">
+              <a href="javascript:{}" onclick="document.getElementById('my_form').submit();">Выйти</a>
+              </form> 
+              </li>
+          {{else}}
+            {{#if isCreate}}
+            <li class="active"><a href="/registration">Registration</a></li>
+            {{else}}
+           <li><a href="/registration">Registration</a></li>
+            {{/if}}
+
+            {{#if isClick}}
+            <li class="active"><a href="/signin">SignIn</a></li>
+            {{else}}
+            <li><a href="/signin">SignIn</a></li>
+            {{/if}}  
+         {{/if}}
+
+      
+      </ul>
+    </div>
+  </nav>

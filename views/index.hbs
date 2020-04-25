@@ -1,0 +1,58 @@
+
+<h6>Привет
+{{#each user}}
+<a>{{Name}}</a>
+    {{/each}}
+  {{#if todos.length}}
+</h6>
+<table>
+    <tr>
+         <td width="15px"></td>
+        <td width="115px"  >Имя</td>
+        <td width="125px" >Почта</td>
+        <td width="125px" >Последняя дата</td>
+        <td width="120px" >Дата Регистрации</td>
+        <td width="110px" >Статус</td>
+        <td width="100px" ></td>
+    </tr>
+</table>
+
+             <ul>
+                   
+                    {{#each todos}}
+                        <li class="todo">
+                          
+                            <form action="/complete" method="POST">
+                            <label>
+                               
+                                {{#if Status}}
+                                    <input type="checkbox" checked name="Status">
+                                    <span>{{Name}}</span>
+                                     <span >{{Email}}</span>
+                                     <span >{{LastIn}}</span>
+                                       <span >{{FirstIn}}</span>
+                                        <span >{{Status}}</span>
+                                      
+                                {{else}}
+                                    <input type="checkbox" name="Status">
+                                    <span class="completed" >{{Name}}</span>
+                                     <span class="completed">{{Email}}</span>
+                                      <span class="completed">{{LastIn}}</span>
+                                       <span class="completed">{{FirstIn}}</span>
+                                        <span class="completed">{{Status}}</span>
+                                {{/if}}
+
+                                <input type="hidden" value="{{_id}}" name="id">
+                                <button class="btn btn-small" type="submit">Block/Unblok</button>
+                            </label>
+                        </form>
+                        </li>
+
+                    {{else}}
+                    
+                 {{/each}}
+             </ul>
+
+         {{else}}
+           <p>NO Todos</p>
+        {{/if}}
